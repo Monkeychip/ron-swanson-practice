@@ -1,5 +1,3 @@
-// @flow
-
 import { combineReducers } from "redux";
 
 import fetchQuoteReducer from "./reducer_fetchQuote";
@@ -15,7 +13,7 @@ const initialState = {
   row: 0
 }
 
-const rootReducer = (state :Object = initialState, action: Object) => {
+const rootReducer = (state, action) => {
   return appReducer(state, action);
 };
 

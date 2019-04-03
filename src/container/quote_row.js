@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
@@ -42,37 +40,37 @@ export class QuoteRow extends Component<Props, State> {
     };
   }
 
-  compareBy(key? : string) {
-    return function(a : any, b: any) { //either type object with key number (rate) or object with key string (quote)
+  compareBy(key) {
+    return function(a, b) { // either type object with key number (rate) or object with key string (quote)
       if (a[key] < b[key]) return -1;
       if (a[key] > b[key]) return 1;
       return 0;
     };
   }
 
-  sortBy(key? : string) { //sort the array of rows based on either rate or quote
+  sortBy(key) { // sort the array of rows based on either rate or quote
     let arrayCopy = [...this.state.rows];
     arrayCopy.sort(this.compareBy(key));
     this.setState({ rows: arrayCopy });
   }
 
-  removeRow = (index : number) => () => {
+  removeRow = (index) => () => {
     const rows = [...this.state.rows];
-    rows.splice(index, 1); //remove the row based on index
-    this.setState({ rows }); //update rows state without the deleted row
+    rows.splice(index, 1); // remove the row based on index
+    this.setState({ rows }); // update rows state without the deleted row
   };
 
-  handleSelect = (index : number) => () => {
-    this.setState({ activeIndex: index }); //add index to state so ternary operator can to determine if active should be added to tr
+  handleSelect = (index) => () => {
+    this.setState({ activeIndex: index }); // add index to state so ternary operator can to determine if active should be added to tr
   };
 
-  componentWillReceiveProps(newProps : *) { //if new props from state.row appear add them to the rows object on component state
+  componentWillReceiveProps(newProps) { // if new props from state.row appear add them to the rows object on component state
     if (newProps.row !== 0) {
       this.setState({
         rows: [...this.state.rows, newProps.row]
       });
     } else {
-      //do nothing
+      // do nothing
     }
   }
 
@@ -125,7 +123,7 @@ export class QuoteRow extends Component<Props, State> {
 
 function mapStateToProps(state) {
   return {
-    row: state.row //allow row object containing quote and rate to be accessible on props
+    row: state.row // allow row object containing quote and rate to be accessible on props
   };
 }
 

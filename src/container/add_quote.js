@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -24,17 +22,17 @@ export class AddQuote extends Component<Props,State> {
     this.addRow = this.addRow.bind(this);
     this.updateInputValue= this.updateInputValue.bind(this);
     this.state = {
-      inputValue: "", //initialize inputValue to nothing, used to keep track of quote's rating
+      inputValue: "", // initialize inputValue to nothing, used to keep track of quote's rating
       quote: ""
     };
   }
 
   addRow = () => {
     const data = {
-      quote: this.props.quote[0], //pulling quote from Redux store
-      rate: this.state.inputValue //pulling rate from inputValue on component's state
+      quote: this.props.quote[0], // pulling quote from Redux store
+      rate: this.state.inputValue // pulling rate from inputValue on component's state
     };
-    this.props.addRowReturnNewQuote(data); //passing to action creator addRowReturnNewQuote, saving on Redux Store to retrieve in sibling component
+    this.props.addRowReturnNewQuote(data); // passing to action creator addRowReturnNewQuote, saving on Redux Store to retrieve in sibling component
     this.setState({
       inputValue: ""
     });
@@ -47,7 +45,7 @@ export class AddQuote extends Component<Props,State> {
   }
 
   componentDidMount() {
-    this.props.fetchData(); //update the displayed quote
+    this.props.fetchData(); // update the displayed quote
   }
 
   render() {
@@ -97,11 +95,11 @@ export class AddQuote extends Component<Props,State> {
 
 function mapStateToProps(state) {
   return {
-    quote: state.quote //return the quote from the Redux store, and make accessible via props
+    quote: state.quote // return the quote from the Redux store, and make accessible via props
   };
 }
 
-function mapDispatchToProps(dispatch : Dispatch<*>) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchData, //bind the action creator so that fetchData is called every time component mounts
