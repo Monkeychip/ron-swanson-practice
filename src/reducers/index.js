@@ -8,11 +8,6 @@ const appReducer = combineReducers({
   row: addRowToList
 });
 
-const initialState = {
-  quote: 0,
-  row: 0
-}
-
 const rootReducer = (state, action) => {
   return appReducer(state, action);
 };

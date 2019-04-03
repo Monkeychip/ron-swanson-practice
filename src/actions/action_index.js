@@ -4,12 +4,12 @@ import { FETCH_QUOTE, ADD_ROW } from "./types";
 export function fetchData() {
 
   return (dispatch) => {
-    fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes")
-      .then(response => {
-        return response;
-      })
-      .then(response => response.json())
-      .then(items => dispatch(fetchQuote(items)))
+    // fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes")
+    //   .then(response => {
+    //     return response;
+    //   })
+    //   .then(response => response.json())
+    //   .then(items => dispatch(fetchQuote(items)))
   };
 }
 

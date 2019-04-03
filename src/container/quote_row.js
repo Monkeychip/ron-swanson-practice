@@ -82,6 +82,7 @@ export class QuoteRow extends Component<Props, State> {
             <tr>
               <th
                 className="ui blue Change"
+                id="quote-header"
                 onClick={() => this.sortBy("quote")}
               >
                 Quote
@@ -92,7 +93,7 @@ export class QuoteRow extends Component<Props, State> {
               >
                 Rating
               </th>
-              <th className="ui Change_Red center aligned">Delete</th>
+              <th className="ui center aligned" id="Change_Red">Delete</th>
             </tr>
           </thead>
           <tbody>

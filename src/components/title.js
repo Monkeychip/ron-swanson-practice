@@ -17,7 +17,7 @@ class Title extends Component<*> {
               alt=""
             />
           </div>
-          <h2>Rate Ron's Quotes</h2>
+          <h2 id="title">Rate Ron's Quotes</h2>
         </span>
       </div>
     );

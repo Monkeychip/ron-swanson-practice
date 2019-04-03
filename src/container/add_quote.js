@@ -53,7 +53,7 @@ export class AddQuote extends Component<Props,State> {
     let rateSuggestion = (Math.floor((Math.random() * 10) + 1));
     return (
       <div>
-        <table className="ui celled padded table">
+        <table className="ui celled padded table" id="quote-table">
           <tbody>
             <tr>
               <td>{this.props.quote}</td>
@@ -102,8 +102,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      fetchData, //bind the action creator so that fetchData is called every time component mounts
-      addRowReturnNewQuote  //bind so that component can send data to this action creator
+      fetchData, // bind the action creator so that fetchData is called every time component mounts
+      addRowReturnNewQuote  // bind so that component can send data to this action creator
     },
     dispatch
   );
