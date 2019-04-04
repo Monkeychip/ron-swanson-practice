@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // local storage so stays in browserscache
-import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxPromise from 'redux-promise';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
@@ -23,9 +22,7 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 
 export const store = createStore(
   persistedReducer,
-  composeWithDevTools(
-    applyMiddleware(...middleware),
-  )
+  applyMiddleware(...middleware),
 );
 
 export const persistor = persistStore(store);
